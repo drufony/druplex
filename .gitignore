@@ -1,3 +1,10 @@
 /vendor/
 composer.lock
 
+classmap.php
+web/includes
+web/misc
+web/modules
+web/profiles
+web/themes
+web/sites/
