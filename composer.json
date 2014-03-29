@@ -54,6 +54,9 @@
             "web/profiles/{$name}/": ["type:drupal-profile"],
             "web/sites/all/drush/{$name}/": ["type:drupal-drush"]
         },
-        "drupal-root": "web/"
+        "drupal-root": "web/",
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
     }
 }
