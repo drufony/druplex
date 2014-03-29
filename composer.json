@@ -1,35 +1,59 @@
 {
-    "name": "bangpound/silex-skeleton",
-    "description": "A pre-configured skeleton for the Silex microframework",
+    "name": "drufony/druplex",
+    "description": "Drupal running in Silex",
     "license": "MIT",
     "type": "project",
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "http://drufony.github.io"
+        }
+    ],
     "require": {
         "php": ">=5.3.3",
-        "silex/silex": "~1.0",
-        "symfony/twig-bridge": "~2.3",
-        "symfony/validator": "~2.3"
+        "silex/silex": "1.2.*@dev",
+        "bangpound/drupal-bridge": "1.0.*@dev",
+        "bangpound/drupal-bootstrap": "1.1.*@dev",
+        "bangpound/legacy-php-http-kernel": "1.1.*@dev",
+        "bangpound/legacy-php-http-kernel-provider": "1.0.*@dev",
+        "bangpound/drupal-service-provider": "1.0.*@dev",
+        "drupal/drupal": "dev-7.x-silex",
+        "drupal/minimal": "7.*@dev",
+        "drupal/standard": "7.*@dev",
+        "bangpound/symfony-module": "dev-master"
     },
     "require-dev": {
-        "silex/web-profiler": "~1.0",
-        "symfony/browser-kit": "~2.3",
-        "symfony/class-loader": "~2.3",
-        "symfony/config": "~2.3",
-        "symfony/console": "~2.3",
-        "symfony/css-selector": "~2.3",
-        "symfony/debug": "~2.3",
-        "symfony/finder": "~2.3",
-        "symfony/form": "~2.3",
-        "symfony/monolog-bridge": "~2.3",
-        "symfony/process": "~2.3",
-        "symfony/security": "~2.3",
-        "symfony/translation": "~2.3"
+        "monolog/monolog": "~1.8",
+        "symfony/monolog-bridge": "~2.4",
+        "silex/web-profiler": "1.0.*@dev"
     },
     "autoload": {
-        "psr-0": { "": "src/" }
+        "psr-0": {
+            "": "src/"
+        }
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "Bangpound\\Bridge\\Drupal\\Composer\\ScriptHandler::installDrupal",
+            "Bangpound\\Bridge\\Drupal\\Composer\\ScriptHandler::dumpAutoload"
+        ],
+        "post-update-cmd": [
+            "Bangpound\\Bridge\\Drupal\\Composer\\ScriptHandler::installDrupal",
+            "Bangpound\\Bridge\\Drupal\\Composer\\ScriptHandler::dumpAutoload"
+        ]
+    },
+    "config": {
+        "bin-dir": "bin"
     },
     "extra": {
-        "branch-alias": {
-            "dev-master": "1.1.x-dev"
-        }
+        "symfony-app-dir": "app",
+        "symfony-web-dir": "web",
+        "installer-paths": {
+            "web/sites/all/modules/{$name}/": ["type:drupal-module"],
+            "web/sites/all/themes/{$name}/": ["type:drupal-theme"],
+            "web/profiles/{$name}/": ["type:drupal-profile"],
+            "web/sites/all/drush/{$name}/": ["type:drupal-drush"]
+        },
+        "drupal-root": "web/"
     }
 }
