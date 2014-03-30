@@ -13,7 +13,7 @@
         "php": ">=5.3.3",
         "silex/silex": "~1.2",
         "bangpound/drupal-bridge": "1.0.*@dev",
-        "bangpound/drupal-bootstrap": "1.1.*@dev",
+        "bangpound/drupal-bootstrap": "~1.1",
         "bangpound/legacy-php-http-kernel": "1.1.*@dev",
         "bangpound/legacy-php-http-kernel-provider": "1.0.*@dev",
         "bangpound/drupal-service-provider": "1.0.*@dev",
