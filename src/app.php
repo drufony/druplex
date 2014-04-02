@@ -10,6 +10,9 @@ $app = new Application(array(
 ));
 $app->register(new TwigServiceProvider());
 $app->register(new LegacyPhpHttpKernelProvider());
-$app->register(new DrupalServiceProvider());
+$app->register(new DrupalServiceProvider(), array(
+    'drupal.conf' => array(
+    ),
+));
 
 return $app;
