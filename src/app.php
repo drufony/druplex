@@ -1,7 +1,6 @@
 <?php
 
 use Silex\Application;
-use Bangpound\Bridge\Drupal\Controller\ControllerResolver;
 use Bangpound\Silex\DrupalServiceProvider;
 use Bangpound\Silex\LegacyPhpHttpKernelProvider;
 use Silex\Provider\TwigServiceProvider;
